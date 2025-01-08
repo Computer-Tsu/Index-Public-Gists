@@ -1,2 +1,1 @@
-# Index-Public-Gists
-Public Gists Index
+# Public Gists Index
