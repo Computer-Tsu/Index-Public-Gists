@@ -1,0 +1,55 @@
+name: Update Public Gists Index
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Weekly schedule (Sunday at midnight)
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  update-public-gists:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set Up GitHub CLI
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gh
+
+    - name: Authenticate GitHub CLI
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      run: gh auth login --with-token <<< "${PERSONAL_ACCESS_TOKEN}"
+
+    - name: Fetch Public Gists
+      run: |
+        gh gist list > gists.txt
+        echo "# Public Gists Index" > new_readme.md
+        while IFS= read -r line; do
+          gist_id=$(echo "$line" | awk '{print $1}')
+          gist_description=$(echo "$line" | cut -d' ' -f4-)
+          echo "- [${gist_description:-Untitled}](https://gist.github.com/$gist_id)" >> new_readme.md
+        done
+
+    - name: Compare README Files
+      id: compare
+      run: |
+        if cmp -s README.md new_readme.md; then
+          echo "No changes detected."
+          echo "update_needed=false" >> $GITHUB_ENV
+        else
+          echo "Changes detected."
+          mv new_readme.md README.md
+          echo "update_needed=true" >> $GITHUB_ENV
+        fi
+
+    - name: Commit and Push Changes
+      if: env.update_needed == 'true'
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "action@github.com"
+        git add README.md
+        git commit -m "Update Public Gists Index"
+        git push
