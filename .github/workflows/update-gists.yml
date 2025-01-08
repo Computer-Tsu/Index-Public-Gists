@@ -37,6 +37,9 @@ jobs:
     - name: Compare README Files
       id: compare
       run: |
+        cat README.md
+        echo ------- Now list new file
+        cat new_readme.md
         if cmp -s README.md new_readme.md; then
           echo "No changes detected."
           echo "update_needed=false" >> $GITHUB_ENV
