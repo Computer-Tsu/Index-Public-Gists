@@ -25,7 +25,8 @@ jobs:
 
     - name: Fetch Public Gists
       run: |
-        gh gist list > gists.txt
+        gh gist list --public
+        gh gist list --public > gists.txt
         echo "# Public Gists Index" > new_readme.md
         while IFS= read -r line; do
           gist_id=$(echo "$line" | awk '{print $1}')
