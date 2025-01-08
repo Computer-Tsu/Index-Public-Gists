@@ -25,7 +25,8 @@ jobs:
 
     - name: Fetch Public Gists
       run: |
-        gh gist list --public
+        set -x # Enable command echoing
+        # gh gist list --public
         gh gist list --public > gists.txt
         echo "# Public Gists Index" > new_readme.md
         while IFS= read -r line; do
@@ -35,7 +36,9 @@ jobs:
           gist_description=$(echo "$line" | cut -d' ' -f4-)
           echo "Description $(echo "$line" | cut -d' ' -f4-)"
           echo "- [${gist_description:-Untitled}](https://gist.github.com/$gist_id)" >> new_readme.md
-        done
+        done < gists.txt
+        cat gists.txt
+        cat new_readme.md
 
     - name: Compare README Files
       id: compare
