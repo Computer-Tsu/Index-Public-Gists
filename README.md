@@ -1,1 +1,11 @@
 # Public Gists Index
+- [Untitled](https://gist.github.com/fced1b2b5b522642871421349d701e0d)
+- [settings to customize Screen shots	1 file	public	2024-10-26T14:31:55Z](https://gist.github.com/a4c747ac58ec82189487e84c3990c0a0)
+- [files	public	2024-09-04T12:10:56Z](https://gist.github.com/a774b41901ca0f6a9a10028e9ec9ef1b)
+- [(command line) for Microsoft Windows System Restore (Protection) Points	1 file	public	2024-09-03T16:28:16Z](https://gist.github.com/33142ebf325205aab5cb6b799b8bf050)
+- [overall performance of your PC using the WinSPRLevel score. This score is based on the individual ratings of your hardware, including the CPU, memory, graphics card, and primary hard drive.	1 file	public	2024-09-02T23:22:00Z](https://gist.github.com/98465b45056aa13a4d95fc327e46e3c9)
+- [and symbols in documentation	1 file	public	2024-09-02T22:02:51Z](https://gist.github.com/0fecd89deeb78a40eb8a251780492704)
+- [GUID, MAC addresses	6 files	public	2024-09-02T21:18:05Z](https://gist.github.com/6f60ca5c38169d262e155fb10ccc3062)
+- [IP with audible bell when offline	1 file	public	2024-09-02T18:29:12Z](https://gist.github.com/66bb06c4ca3b0b9ae38042044766c1e7)
+- [Services shortcut key combinations	1 file	public	2024-09-02T17:43:03Z](https://gist.github.com/731401953fd12ad8e955482b0ca06689)
+- [application Installer error codes numbers return results	1 file	public	2024-02-28T02:35:55Z](https://gist.github.com/6766a8cbea30e00771affcd435d7960f)
