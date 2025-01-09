@@ -26,8 +26,8 @@ jobs:
     - name: Fetch Public Gists
       run: |
         set -x # Enable command echoing
-        # gh gist list --public
         gh gist list --public --limit 999 > gists.txt
+        cat gists.txt
         echo "# Public Gists Index" > new_readme.md
         echo "| Description | Number of Files | Modified Date |" >> new_readme.md
         echo "|-------------|-----------------| ------------- |" >> new_readme.md
