@@ -34,7 +34,12 @@ jobs:
         while IFS= read -r -d '' line; do
           echo "Processing line: $line" # Debug line
           gist_id=$(echo "$line" | awk '{print $1}')
-          gist_description=$(echo "$line" | cut -d' ' -f4- | sed 's/|/-/g')
+          # Matches lines with a 32-character alphanumeric ID followed by
+          # 32-character alphanumeric ID at the beginning of the line
+          # one or more spaces.
+          # (.+) Captures the text we want to extract.
+          # replace pipe with dash to not disrupt markdown table with special char in some names
+          gist_description=$(echo "$line" | sed -n -E 's/^[a-zA-Z0-9]{32} +(.+) [0-9]+ +(file|files) +public$/\1/p' | sed 's/|/-/g')
           gist_files=$(echo "$line" | awk '{print $3}')
           gist_date=$(echo "$line" | awk '{print $4}' | cut -d'T' -f1) # Extract only the date
           echo "| [${gist_description}](https://gist.github.com/$gist_id) | $gist_files | $gist_date |" >> new_readme.md
