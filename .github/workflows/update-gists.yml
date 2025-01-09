@@ -29,15 +29,14 @@ jobs:
         # gh gist list --public
         gh gist list --public --limit 999 > gists.txt
         echo "# Public Gists Index" > new_readme.md
-        echo "| Description | Number of Files |" >> new_readme.md
-        echo "|-------------|-----------------|" >> new_readme.md
+        echo "| Description | Number of Files | Modified Date |" >> new_readme.md
+        echo "|-------------|-----------------| ------------- |" >> new_readme.md
         while IFS= read -r -d '' line; do
           echo "Processing line: $line" # Debug line
           gist_id=$(echo "$line" | awk '{print $1}')
-          # gist id $(echo "$line" | cut -d' ' -f4-)"
           gist_description=$(echo "$line" | cut -d' ' -f4-)
           gist_files=$(echo "$line" | awk '{print $3}')
-          gist_date=$(echo "$line" | awk '{print $5}')
+          gist_date=$(echo "$line" | awk '{print $4}' | cut -d'T' -f1) # Extract only the date
           echo "| [${gist_description}](https://gist.github.com/$gist_id) | $gist_files | $gist_date |" >> new_readme.md
         done < <(tr '\n' '\0' < gists.txt)
         # cat gists.txt
