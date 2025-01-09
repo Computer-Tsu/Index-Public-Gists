@@ -29,13 +29,16 @@ jobs:
         # gh gist list --public
         gh gist list --public --limit 999 > gists.txt
         echo "# Public Gists Index" > new_readme.md
+        echo "| Description | Number of Files |" >> new_readme.md
+        echo "|-------------|-----------------|" >> new_readme.md
         while IFS= read -r -d '' line; do
           echo "Processing line: $line" # Debug line
           gist_id=$(echo "$line" | awk '{print $1}')
-          # echo "gist id $(echo "$line" | cut -d' ' -f4-)"
+          # gist id $(echo "$line" | cut -d' ' -f4-)"
           gist_description=$(echo "$line" | cut -d' ' -f4-)
-          # echo "Description $(echo "$line" | cut -d' ' -f4-)"
-          echo "- [${gist_description:-Untitled}](https://gist.github.com/$gist_id)" >> new_readme.md
+          gist_files=$(echo "$line" | awk '{print $3}')
+          gist_date=$(echo "$line" | awk '{print $5}')
+          echo "| [${gist_description}](https://gist.github.com/$gist_id) | $gist_files | $gist_date |" >> new_readme.md
         done < <(tr '\n' '\0' < gists.txt)
         # cat gists.txt
         # cat new_readme.md
