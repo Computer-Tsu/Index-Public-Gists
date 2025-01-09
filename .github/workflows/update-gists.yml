@@ -33,18 +33,13 @@ jobs:
         echo "|-------------|-----------------| ------------- |" >> new_readme.md
         while IFS= read -r -d '' line; do
           echo "Processing line: $line" # Debug line
-          echo "$line" | awk '{print $1}'
-          echo "$line" | awk '{print $2}'
-          echo "$line" | awk '{print $3}'
-          echo "$line" | awk '{print $4}'
-          echo "$line" | awk '{print $5}'
           gist_id=$(echo "$line" | awk '{print $1}')
           # Matches lines with a 32-character alphanumeric ID followed by
           # 32-character alphanumeric ID at the beginning of the line
           # one or more spaces.
           # (.+) Captures the text we want to extract.
           # replace pipe with dash to not disrupt markdown table with special char in some names
-          gist_description=$(echo "$line" | sed -n -E 's/^[a-zA-Z0-9]{32} +(.+) [0-9]+ +(file|files) +public$/\1/p' | sed 's/|/-/g')
+          gist_description=$(echo "$line" | sed -n -E 's/^[a-zA-Z0-9]{32}[[:space:]]+(.+)[[:space:]]+[0-9]+[[:space:]]+file(s)?[[:space:]]+public[[:space:]]+[0-9]{4}-[0-9]{2}-[0-9]{2}.*/\1/p' | sed 's/|/-/g')
           echo "$line" | sed -n -E 's/^[a-fA-F0-9]{32} +(.+) [0-9]+ +(file|files) +public$/\1/p'
           gist_files=$(echo "$line" | sed -E 's/.*\|\s*([^|]+)\s*\|.*/\1/')
           gist_date=$(echo "$line" | sed -E 's/.*\s([0-9]{4}-[0-9]{2}-[0-9]{2}).*/\1/') # Extract the date
