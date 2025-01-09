@@ -34,7 +34,7 @@ jobs:
         while IFS= read -r -d '' line; do
           echo "Processing line: $line" # Debug line
           gist_id=$(echo "$line" | awk '{print $1}')
-          gist_description=$(echo "$line" | cut -d' ' -f4-)
+          gist_description=$(echo "$line" | cut -d' ' -f4- | sed 's/|/-/g')
           gist_files=$(echo "$line" | awk '{print $3}')
           gist_date=$(echo "$line" | awk '{print $4}' | cut -d'T' -f1) # Extract only the date
           echo "| [${gist_description}](https://gist.github.com/$gist_id) | $gist_files | $gist_date |" >> new_readme.md
