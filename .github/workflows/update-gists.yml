@@ -46,8 +46,8 @@ jobs:
           # replace pipe with dash to not disrupt markdown table with special char in some names
           gist_description=$(echo "$line" | sed -n -E 's/^[a-zA-Z0-9]{32} +(.+) [0-9]+ +(file|files) +public$/\1/p' | sed 's/|/-/g')
           echo "$line" | sed -n -E 's/^[a-fA-F0-9]{32} +(.+) [0-9]+ +(file|files) +public$/\1/p'
-          gist_files=$(echo "$line" | awk '{print $3}')
-          gist_date=$(echo "$line" | awk '{print $4}' | cut -d'T' -f1) # Extract only the date
+          gist_files=$(echo "$line" | sed -E 's/.*\|\s*([^|]+)\s*\|.*/\1/')
+          gist_date=$(echo "$line" | sed -E 's/.*\s([0-9]{4}-[0-9]{2}-[0-9]{2}).*/\1/') # Extract the date
           echo "| [${gist_description}](https://gist.github.com/$gist_id) | $gist_files | $gist_date |" >> new_readme.md
         done < <(tr '\n' '\0' < gists.txt)
         # cat gists.txt
