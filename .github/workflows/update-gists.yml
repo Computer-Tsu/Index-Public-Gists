@@ -27,7 +27,7 @@ jobs:
       run: |
         set -x # Enable command echoing
         # gh gist list --public
-        gh gist list --public > gists.txt
+        gh gist list --public --limit 999 > gists.txt
         echo "# Public Gists Index" > new_readme.md
         while IFS= read -r -d '' line; do
           echo "Processing line: $line" # Debug line
@@ -37,8 +37,8 @@ jobs:
           # echo "Description $(echo "$line" | cut -d' ' -f4-)"
           echo "- [${gist_description:-Untitled}](https://gist.github.com/$gist_id)" >> new_readme.md
         done < <(tr '\n' '\0' < gists.txt)
-        cat gists.txt
-        cat new_readme.md
+        # cat gists.txt
+        # cat new_readme.md
 
     - name: Compare README Files
       id: compare
