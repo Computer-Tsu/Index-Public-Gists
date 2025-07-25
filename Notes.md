@@ -72,3 +72,10 @@ To use this for your Private gists, some instances of 'Public' are changed to 'S
     - For the **Name**, enter a descriptive name, e.g., `PAT`.
     - For the **Value**, paste the Personal Access Token you generated.
     - Click **Add secret**.
+
+-----
+
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Repo Size](https://img.shields.io/github/repo-size/Computer-Tsu/Time)
+![Last Commit](https://img.shields.io/github/last-commit/Computer-Tsu/Time)
