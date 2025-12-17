@@ -1,5 +1,10 @@
 # Automaticaly make a list of your gists.
 
+## Purpose
+
+This repository automatically maintains an index of my public GitHub Gists.<br>
+It exists to make long-lived gists easier to discover, reference, and reuse.
+
 Use the workflow file, make your own personal access token with org, gists, and repo.
 - repo - to update your repository storing this project and commit the output results (the Index / README.md)
 - admin:org read - classic token gave error in workflow for me without this permission
