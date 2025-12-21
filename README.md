@@ -5,7 +5,7 @@
 | [PowerShell Profiles](https://gist.github.com/fced1b2b5b522642871421349d701e0d) | 3 | 2025-10-21 |
 | [Windows registry key settings to customize Screen shots](https://gist.github.com/a4c747ac58ec82189487e84c3990c0a0) | 1 | 2025-10-21 |
 | [Win11 Classic Explorer](https://gist.github.com/a774b41901ca0f6a9a10028e9ec9ef1b) | 2 | 2024-09-04 |
-| [Script and CLI (command line) for Microsoft Windows System Restore (Protection) Points](https://gist.github.com/33142ebf325205aab5cb6b799b8bf050) | 1 | 2025-10-21 |
+| [Script and CLI (command line) for Microsoft Windows System Restore (Protection) Points](https://gist.github.com/33142ebf325205aab5cb6b799b8bf050) | 1 | 2025-12-14 |
 | [WEI rates the overall performance of your PC using the WinSPRLevel score. This score is based on the individual ratings of your hardware, including the CPU, memory, graphics card, and primary hard drive.](https://gist.github.com/98465b45056aa13a4d95fc327e46e3c9) | 1 | 2024-09-02 |
 | [Using special characters and symbols in documentation](https://gist.github.com/0fecd89deeb78a40eb8a251780492704) | 1 | 2025-10-21 |
 | [Working with UUID, GUID, MAC addresses](https://gist.github.com/6f60ca5c38169d262e155fb10ccc3062) | 6 | 2025-10-21 |
