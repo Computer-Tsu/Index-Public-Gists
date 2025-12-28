@@ -37,7 +37,7 @@
 | [PING-Network.bat](https://gist.github.com/19b19fd74f5b864115183091c4ff5ecd) | 1 | 2023-06-27 |
 | [Change the Admin Password with Mac OS X Single User Mode](https://gist.github.com/f67279d0b18951ba3f1af8a9193d7ba0) | 1 | 2025-11-18 |
 | [How to Run Windows Installer in Safe Mode Windows 10 with Command Prompt](https://gist.github.com/159f5cb6c4cb19c84f7ac2408054d89a) | 1 | 2023-06-27 |
-| [Command prompt SET PROMPT for Microsoft Windows CMD](https://gist.github.com/e4d673bf61573b8d6ea1bc50a71003cd) | 1 | 2025-11-20 |
+| [Command prompt SET PROMPT for Microsoft Windows CMD](https://gist.github.com/e4d673bf61573b8d6ea1bc50a71003cd) | 3 | 2025-12-22 |
 | [Recipes for using PowerRename tool in Microsoft PowerToys](https://gist.github.com/d64569b29a491a22270628eaec8899a0) | 1 | 2025-01-13 |
 | [Protection from Internet, malware, websites, URLs](https://gist.github.com/e7d98081f6e30e8a373b439c75ef0266) | 3 | 2025-11-04 |
 | [Check for power, Internet, and other Outages](https://gist.github.com/2bcb84a82cb000fca5dcf001a7f81cd4) | 1 | 2025-11-04 |
